@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import './App.css';
+import Dashboard from './pages/Dashboard';
+import Transactions from './pages/Transactions';
+import Budgets from './pages/Budgets';
 
 const CATEGORIES = ['Housing', 'Food', 'Transport', 'Health', 'Shopping', 'Entertainment', 'Savings', 'Other'];
 const CATEGORY_COLORS = { 
@@ -25,9 +28,9 @@ function App() {
           <div>Personal Finance</div>
         </div>
 
-        <button>Dashboard</button>
-        <button>Transactions</button>
-        <button>Budgets</button>
+        <button onClick={() => setScreen('dashboard')}>Dashboard</button>
+        <button onClick={() => setScreen('transactions')}>Transactions</button>
+        <button onClick={() => setScreen('budgets')}>Budgets</button>
 
         <div>
           <div>Net Balance</div>
@@ -37,7 +40,9 @@ function App() {
 
       {/* Main */}
       <main>
-        {screen === 'dashboard' && <div>Dashboard</div>}
+        {screen === 'dashboard' && <Dashboard /> }
+        {screen === 'transactions' && <Transactions /> }
+        {screen === 'budgets' && <Budgets /> }
       </main>
     </>
   );
