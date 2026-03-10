@@ -1,5 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+
+const CATEGORIES = ['Housing', 'Food', 'Transport', 'Health', 'Shopping', 'Entertainment', 'Savings', 'Other'];
+const CATEGORY_COLORS = { 
+  Housing: "#7aaec8",
+  Food: "#7ec8a0",
+  Transport: "#c9b99a",
+  Health: "#e07b6a",
+  Shopping: "#b07ac8",
+  Entertainment: "#c8a87a",
+  Savings: "#7ac8b8",
+  Other: "#888"
+};
 
 function App() {
   const [screen, setScreen] = useState('dashboard');
@@ -28,7 +40,7 @@ function App() {
         {screen === 'dashboard' && <div>Dashboard</div>}
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
