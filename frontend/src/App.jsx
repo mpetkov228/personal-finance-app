@@ -28,9 +28,9 @@ function App() {
           <div>Personal Finance</div>
         </div>
 
-        <button onClick={() => setScreen('dashboard')}>Dashboard</button>
-        <button onClick={() => setScreen('transactions')}>Transactions</button>
-        <button onClick={() => setScreen('budgets')}>Budgets</button>
+        <button className="nav-item" onClick={() => setScreen('dashboard')}>Dashboard</button>
+        <button className="nav-item" onClick={() => setScreen('transactions')}>Transactions</button>
+        <button className="nav-item" onClick={() => setScreen('budgets')}>Budgets</button>
 
         <div>
           <div>Net Balance</div>
