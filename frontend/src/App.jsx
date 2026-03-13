@@ -4,6 +4,8 @@ import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Budgets from './pages/Budgets';
 
+import { formatBalance } from './utils/functions';
+
 const CATEGORIES = ['Housing', 'Food', 'Transport', 'Health', 'Shopping', 'Entertainment', 'Savings', 'Other'];
 const CATEGORY_COLORS = { 
   Housing: "#7aaec8",
@@ -20,7 +22,7 @@ const SCREENS = [
   { id: 'transactions', label: 'Transactions', icon: '⇄'},
   { id: 'budgets', label: 'Budgets', icon: '◎'},
 ];
-const balance = 415;
+const balance = 2415;
 
 function App() {
   const [screen, setScreen] = useState('dashboard');
@@ -43,7 +45,7 @@ function App() {
 
         <div className="sidebar-balance">
           <div className="tag">Net Balance</div>
-          <div className={`balance ${balance > 0 ? "positive" : "negative"}`}>{balance > 0 ? "+" : "-"}${Math.abs(balance)}</div>
+          <div className={`balance ${balance > 0 ? "positive" : "negative"}`}>{balance > 0 ? "+" : "-"}{formatBalance(balance)}</div>
         </div>
       </div>
 
