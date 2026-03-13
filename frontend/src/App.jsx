@@ -15,26 +15,35 @@ const CATEGORY_COLORS = {
   Savings: "#7ac8b8",
   Other: "#888"
 };
+const SCREENS = [
+  { id: 'dashboard', label: 'Dashboard', icon: '◈'},
+  { id: 'transactions', label: 'Transactions', icon: '⇄'},
+  { id: 'budgets', label: 'Budgets', icon: '◎'},
+];
+const balance = 415;
 
 function App() {
   const [screen, setScreen] = useState('dashboard');
 
   return (
-    <>
+    <div className="main">
       {/* Sidebar */}
-      <div>
-        <div>
-          <div>Wealth Tracker</div>
-          <div>Personal Finance</div>
+      <div className="sidebar">
+        <div className="sidebar-title">
+          <div className="heading">Wealth Tracker</div>
+          <div className="sub-heading">Personal Finance</div>
         </div>
 
-        <button className="nav-item" onClick={() => setScreen('dashboard')}>Dashboard</button>
-        <button className="nav-item" onClick={() => setScreen('transactions')}>Transactions</button>
-        <button className="nav-item" onClick={() => setScreen('budgets')}>Budgets</button>
+        {SCREENS.map(s => (
+          <button key={s.id} className={`nav-item ${screen === s.id ? "active" : ""}`} onClick={() => setScreen(s.id)}>
+            <span style={{ fontSize: "0.9rem" }}>{s.icon}</span>
+            {s.label}
+          </button>
+        ))}
 
-        <div>
-          <div>Net Balance</div>
-          <div>+$2,415</div>
+        <div className="sidebar-balance">
+          <div className="tag">Net Balance</div>
+          <div className={`balance ${balance > 0 ? "positive" : "negative"}`}>{balance > 0 ? "+" : "-"}${Math.abs(balance)}</div>
         </div>
       </div>
 
@@ -44,7 +53,7 @@ function App() {
         {screen === 'transactions' && <Transactions /> }
         {screen === 'budgets' && <Budgets /> }
       </main>
-    </>
+    </div>
   );
 }
 
