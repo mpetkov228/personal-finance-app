@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import Dashboard from './pages/Dashboard';
-import Transactions from './pages/Transactions';
-import Budgets from './pages/Budgets';
+import Dashboard from './components/Dashboard';
+import Transactions from './components/Transactions';
+import Budgets from './components/Budgets';
 
 import { formatBalance } from './utils/functions';
 

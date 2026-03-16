@@ -6,4 +6,11 @@ function formatBalance(balance) {
     }).format(Math.abs(balance));
 }
 
-export { formatBalance };
+function formatDate(date) {
+    new Date(date).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric"
+    });
+}
+
+export { formatBalance, formatDate };

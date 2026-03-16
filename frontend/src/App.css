@@ -1,3 +1,10 @@
+main {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    max-width: 900;
+}
+
 .main {
     display: flex;
     min-height: 100vh;
@@ -54,6 +61,19 @@
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 0.4rem;
+}
+
+.card-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
 }
 
 .positive {
