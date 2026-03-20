@@ -1,7 +1,7 @@
 import { formatBalance } from "../utils/functions";
 import StatCard from "./StatCard";
 
-function Dashboard() {
+function Dashboard({ balance }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       <div>
@@ -10,9 +10,9 @@ function Dashboard() {
       </div>
 
       <div className="card-container">
-        <StatCard label="Net Balance" value={formatBalance(2415)} color="var(--green)" />
-        <StatCard label="Total Income" value={formatBalance(4650)} color="var(--green)" />
-        <StatCard label="Total Spent" value={formatBalance(2235)} color="var(--red)" />
+        <StatCard label="Net Balance" value={formatBalance(2415)} color="var(--green)" sub={balance >= 0 ? "You're on track" : "Over budget" } />
+        <StatCard label="Total Income" value={formatBalance(4650)} color="var(--green)" sub="4 transactions" />
+        <StatCard label="Total Spent" value={formatBalance(2235)} color="var(--red)" sub="12 transactions" />
       </div>
     </div>
   );

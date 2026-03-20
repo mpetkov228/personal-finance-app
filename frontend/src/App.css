@@ -70,10 +70,22 @@ main {
 }
 
 .card {
+    flex: 1;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 0.75rem;
     padding: 1.5rem;
+}
+
+.card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin: 0.2rem 0 0.3rem;
+}
+
+.card-subtitle {
+    font-size: 0.72rem;
+    color: var(--muted);
 }
 
 .positive {

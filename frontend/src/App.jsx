@@ -51,7 +51,7 @@ function App() {
 
       {/* Main */}
       <main>
-        {screen === 'dashboard' && <Dashboard /> }
+        {screen === 'dashboard' && <Dashboard balance={balance} /> }
         {screen === 'transactions' && <Transactions /> }
         {screen === 'budgets' && <Budgets /> }
       </main>
