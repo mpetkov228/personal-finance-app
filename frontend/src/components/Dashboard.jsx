@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import { formatBalance, formatDate } from "../utils/functions";
+import { formatBalance } from "../utils/functions";
 import StatCard from "./StatCard";
-import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, PieChart, Pie, Cell } from "recharts";
 import BalanceChart from "./BalanceChart";
 import SpendingChart from "./SpendingChart";
+import RecentTransactions from "./RecentTransactions";
 
 const SEED_TRANSACTIONS = [
   { id: 1, desc: "Monthly Rent", amount: -1200, category: "Housing", date: "2024-06-01", type: "expense" },
@@ -57,23 +57,7 @@ function Dashboard({ balance }) {
         <SpendingChart pieData={pieData} colors={CAT_COLORS} />
       </div>
 
-      <div className="card">
-        <div className="tag" style={{ marginBottom: "1rem" }}>Recent Transactions</div>
-        {transactions.slice(0, 5).map(t => (
-          <div key={t.id} className="transaction">
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: CAT_COLORS[t.category] || "#888", flexShrink: 0 }} />
-              <div>
-                <div style={{ fontFamily: "Archivo, sans-serif", fontSize: "0.82rem", color: "var(--text)" }}>{t.desc}</div>
-                <div style={{ fontFamily: "Archivo, sans-serif", fontSize: "0.68rem", color: "var(--muted)", marginTop: 2 }}>{t.category} · {formatDate(t.date)}</div>
-              </div>
-            </div>
-            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.9rem", color: t.amount > 0 ? "var(--green)" : "var(--red)" }}>
-              {t.amount > 0 ? "+" : "-"}{formatBalance(t.amount)}
-            </div>
-          </div>
-        ))}
-      </div>
+      <RecentTransactions transactions={transactions} colors={CAT_COLORS} />
     </div>
   );
 }
