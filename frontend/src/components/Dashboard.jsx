@@ -3,6 +3,7 @@ import { formatBalance, formatDate } from "../utils/functions";
 import StatCard from "./StatCard";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, PieChart, Pie, Cell } from "recharts";
 import BalanceChart from "./BalanceChart";
+import SpendingChart from "./SpendingChart";
 
 const SEED_TRANSACTIONS = [
   { id: 1, desc: "Monthly Rent", amount: -1200, category: "Housing", date: "2024-06-01", type: "expense" },
@@ -51,20 +52,9 @@ function Dashboard({ balance }) {
         <StatCard label="Total Spent" value={formatBalance(2235)} color="var(--red)" sub="12 transactions" />
       </div>
 
-      <div className="graphs-container">
+      <div className="chart-container">
         <BalanceChart areaData={areaData} />
-
-        <div className="card" style={{ flex: 1, minWidth: 200 }}>
-          <div className="tag">Spending by Category</div>
-          <ResponsiveContainer width="100%" height={160}>
-            <PieChart>
-              <Pie data={pieData} cx="50%" cy="50%" innerRadius={45} outerRadius={68} dataKey="value" paddingAngle={3}>
-                {pieData.map((entry) => <Cell key={entry.name} fill={CAT_COLORS[entry.name] || "#888"} />)}
-              </Pie>
-              <Tooltip contentStyle={{ background: "#202020", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6, fontFamily: "Archivo", fontSize: 11, color: "#f2ede6" }} formatter={(v) => formatBalance(v)} />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+        <SpendingChart pieData={pieData} colors={CAT_COLORS} />
       </div>
 
       <div className="card">

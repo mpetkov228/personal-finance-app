@@ -96,7 +96,7 @@ main {
     color: var(--red);
 }
 
-.graphs-container {
+.chart-container {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
