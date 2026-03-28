@@ -6,6 +6,15 @@ import Budgets from './components/Budgets';
 
 import { formatBalance } from './utils/functions';
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "add_transaction":
+      return { ...state, transactions: [{ ...action.payload, id: Date.now() }, ...state.transactions] };
+    case "delete_transaction":
+      return { ...state, transactions: state.transactions.filter(t => t.id === action.id ) };
+  }
+}
+
 const CATEGORIES = ['Housing', 'Food', 'Transport', 'Health', 'Shopping', 'Entertainment', 'Savings', 'Other'];
 const CATEGORY_COLORS = { 
   Housing: "#7aaec8",
