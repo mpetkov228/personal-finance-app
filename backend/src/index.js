@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 const port = 5000;
 
+app.use(express.json());
 app.use(cors());
 
 const transactions = [
@@ -30,6 +31,13 @@ app.get('/', (req, res) => {
 
 app.get('/api/transactions', (req, res) => {
     res.json(transactions);
+});
+
+app.post('/api/transactions', (req, res) => {
+    const id = transactions.length + 1;
+    const newTransactiosn = { id, ...req.body };
+    transactions.push(newTransactiosn);
+    res.json(newTransactiosn);
 });
 
 app.listen(port, () => {
