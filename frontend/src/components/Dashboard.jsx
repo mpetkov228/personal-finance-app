@@ -16,9 +16,15 @@ function Dashboard({ transactions, balance }) {
 
   const pieData = useMemo(() => {
     const map = {};
-    transactions.filter(t => t.amount < 0).forEach(t => { map[t.category] = (map[t.category] || 0) + Math.abs(t.amount); });
+    transactions?.filter(t => t.amount < 0).forEach(t => { map[t.category] = (map[t.category] || 0) + Math.abs(t.amount); });
     return Object.entries(map).map(([name, value]) => ({ name, value }));
   }, [transactions]);
+
+  if (!transactions) {
+    return (
+      <div>No transactions.</div>
+    );
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
