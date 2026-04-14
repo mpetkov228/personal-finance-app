@@ -70,7 +70,7 @@ function App() {
       {/* Main */}
       <main>
         {screen === 'dashboard' && <Dashboard balance={balance} transactions={transactions} /> }
-        {screen === 'transactions' && <Transactions /> }
+        {screen === 'transactions' && <Transactions transactions={transactions} /> }
         {screen === 'budgets' && <Budgets /> }
       </main>
     </div>
