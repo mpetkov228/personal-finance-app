@@ -13,7 +13,9 @@
   --blue: #7aaec8;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -49,4 +51,26 @@ body {
 .nav-item.active {
   color: var(--accent);
   background: rgba(201, 185, 154, 0.08);
+}
+
+.btn {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.3rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0f0f0f;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: #d9cab0;
 }
